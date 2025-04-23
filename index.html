@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Referral Tool</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    .checkbox-columns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .column {
+      flex: 1;
+      padding: 10px;
+    }
+    .column h3 {
+      margin-bottom: 10px;
+    }
+    .form-section {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Referral Tool for Mobile Dental Providers</h1>
+
+  <!-- Provider Type Dropdown -->
+  <div class="form-section">
+    <label for="provider-type">Select provider type:</label>
+    <select id="provider-type">
+      <option value="">-- Select --</option>
+      <option value="mobile_dentist">Mobile Dentist</option>
+      <option value="dental_hygienist">Public Health Dental Hygienist</option>
+      <option value="health_center">Community Health Center</option>
+      <option value="dental_school">Dental School</option>
+    </select>
+  </div>
+
+  <!-- Patient Characteristics Checkboxes -->
+  <div class="checkbox-columns">
+    <div class="column">
+      <h3>Column 1</h3>
+      <label><input type="checkbox" value="char1" /> Characteristic 1</label><br>
+      <label><input type="checkbox" value="char2" /> Characteristic 2</label>
+    </div>
+    <div class="column">
+      <h3>Column 2</h3>
+      <label><input type="checkbox" value="char3" /> Characteristic 3</label><br>
+      <label><input type="checkbox" value="char4" /> Characteristic 4</label>
+    </div>
+    <div class="column">
+      <h3>Column 3</h3>
+      <label><input type="checkbox" value="char5" /> Characteristic 5</label><br>
+      <label><input type="checkbox" value="char6" /> Characteristic 6</label>
+    </div>
+    <div class="column">
+      <h3>Column 4</h3>
+      <label><input type="checkbox" value="char7" /> Characteristic 7</label><br>
+      <label><input type="checkbox" value="char8" /> Characteristic 8</label>
+    </div>
+  </div>
+
+  <!-- Patient Address -->
+  <div class="form-section">
+    <label for="address">Enter patient address:</label><br>
+    <input type="text" id="address" placeholder="123 Main St, Boston, MA" size="50" />
+  </div>
+
+  <!-- Submit Button -->
+  <button onclick="handleSubmit()">Submit</button>
+
+  <script>
+    function handleSubmit() {
+      const providerType = document.getElementById("provider-type").value;
+      const address = document.getElementById("address").value;
+
+      // Gather all checked characteristics
+      const checked = Array.from(document.querySelectorAll("input[type=checkbox]:checked"))
+                           .map(cb => cb.value);
+
+      // Save inputs to localStorage to use on the next page
+      localStorage.setItem("providerType", providerType);
+      localStorage.setItem("characteristics", JSON.stringify(checked));
+      localStorage.setItem("address", address);
+
+      // Redirect to map page
+      window.location.href = "map.html";
+    }
+  </script>
+</body>
+</html>

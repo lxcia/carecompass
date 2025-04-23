@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recommended Providers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f8f8f8;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    #map-container {
+      height: 500px;
+      max-width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Recommended Providers in Boston</h2>
+  <div id="map-container">
+    <div id="map"></div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- PapaParse for CSV parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+
+  <script>
+    const selectedType = localStorage.getItem("providerType");
+    const selectedChars = JSON.parse(localStorage.getItem("characteristics"));
+
+    const map = L.map("map", {
+      center: [42.3601, -71.0589], // Boston
+      zoom: 12,
+      zoomControl: true
+    });
+
+    // Use a black & white tile layer (CartoDB Positron)
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    // Load and parse the CSV
+    Papa.parse("fake_providers.csv", {
+      download: true,
+      header: true,
+      complete: function(results) {
+        const providers = results.data;
+
+        providers.forEach(provider => {
+          if (provider.type !== selectedType) return;
+
+          const providerChars = provider.characteristics.split(";");
+          const matchesAll = selectedChars.every(char => providerChars.includes(char));
+          if (!matchesAll) return;
+
+          const lat = parseFloat(provider.lat);
+          const lng = parseFloat(provider.lng);
+
+          if (isNaN(lat) || isNaN(lng)) return; // skip invalid coords
+
+          // Bigger, brighter circle marker
+          const circle = L.circleMarker([lat, lng], {
+            radius: 12,
+            fillColor: "#e63946",
+            color: "#6a040f",
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.9
+          });
+
+          circle.bindTooltip(
+            `<strong>${provider.name}</strong><br>${provider.address}<br>${provider.phone}`,
+            { direction: "top", permanent: false, opacity: 0.9 }
+          );
+
+          circle.addTo(map);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
+<script src="script.js"></script>

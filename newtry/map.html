@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dental Provider Matches</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <style>
+    .provider-card {
+      transition: transform 0.3s ease;
+    }
+    .provider-card:hover {
+      transform: scale(1.03);
+    }
+    body {
+      background-image: url('carecompass.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+    }
+    .content-wrapper {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body class="p-6">
+  <div class="max-w-6xl mx-auto">
+    <header class="mb-8">
+      <h1 class="text-6xl font-bold text-gray-800 text-center">care🦷compass</h1>
+    </header>
+
+    <!-- Filter Summary Section -->
+    <div class="content-wrapper shadow p-4 mb-6">
+      <h2 class="text-xl font-semibold text-gray-700 mb-2">Your Search Criteria</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <p class="text-gray-600 font-medium">Provider Type:</p>
+          <p id="summary-provider-type" class="text-gray-800">-</p>
+        </div>
+        <div>
+          <p class="text-gray-600 font-medium">Patient Address:</p>
+          <p id="summary-address" class="text-gray-800">-</p>
+        </div>
+        <div>
+          <p class="text-gray-600 font-medium">Patient Language:</p>
+          <p id="summary-language" class="text-gray-800">-</p>
+        </div>
+        <div>
+          <p class="text-gray-600 font-medium">Patient Insurance:</p>
+          <p id="summary-insurance" class="text-gray-800">-</p>
+        </div>
+        <div class="md:col-span-2">
+          <p class="text-gray-600 font-medium">Selected Care Needs:</p>
+          <p id="summary-care-needs" class="text-gray-800">-</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mb-6">
+      <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition inline-block">Back to Search</a>
+    </div>
+
+    <!-- Results Count -->
+    <div class="mb-6">
+      <p class="text-lg font-medium text-gray-700"><span id="results-count">0</span> providers found</p>
+    </div>
+
+    <!-- Provider Cards Container -->
+    <div id="providers-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Provider cards will be inserted here -->
+      <div class="provider-card-skeleton bg-white rounded-lg shadow-lg overflow-hidden animate-pulse">
+        <div class="bg-gray-300 w-full h-48"></div>
+        <div class="p-6">
+          <div class="h-6 bg-gray-300 rounded mb-4"></div>
+          <div class="h-4 bg-gray-300 rounded mb-2 w-2/3"></div>
+          <div class="h-4 bg-gray-300 rounded mb-4"></div>
+          <div class="flex justify-between items-center">
+            <div class="h-4 bg-gray-300 rounded w-1/4"></div>
+            <div class="h-8 bg-gray-300 rounded-full w-1/3"></div>
+          </div>
+        </div>
+      </div>
+      <!-- More skeleton loaders -->
+      <div class="provider-card-skeleton bg-white rounded-lg shadow-lg overflow-hidden animate-pulse">
+        <div class="bg-gray-300 w-full h-48"></div>
+        <div class="p-6">
+          <div class="h-6 bg-gray-300 rounded mb-4"></div>
+          <div class="h-4 bg-gray-300 rounded mb-2 w-2/3"></div>
+          <div class="h-4 bg-gray-300 rounded mb-4"></div>
+          <div class="flex justify-between items-center">
+            <div class="h-4 bg-gray-300 rounded w-1/4"></div>
+            <div class="h-8 bg-gray-300 rounded-full w-1/3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No Results Message -->
+    <div id="no-results" class="hidden bg-white rounded-lg shadow p-8 text-center">
+      <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <h3 class="mt-2 text-xl font-medium text-gray-900">No providers match your criteria</h3>
+      <p class="mt-1 text-gray-500">Try changing your search criteria or expanding your search area.</p>
+      <div class="mt-6">
+        <a href="index.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition inline-block">Modify Search</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center text-xs text-gray-500 mt-8 mb-4">
+    This is a demo tool. We welcome your feedback! Please contact us at <a href="mailto:lucia_morris@g.harvard.edu" class="text-blue-600 hover:text-blue-800">lucia_morris@g.harvard.edu</a>.
+  </div>
+
+  <!-- Include the providers.js file -->
+  <script src="providers.js"></script>
+  
+  <script>
+    // Main function to populate the page
+    async function populatePage() {
+      // Get saved data from localStorage
+      const providerType = localStorage.getItem('providerType') || '';
+      const address = localStorage.getItem('address') || '';
+      const careNeeds = JSON.parse(localStorage.getItem('careNeeds') || '[]');
+      const patientLanguage = localStorage.getItem('patientLanguage') || '';
+      const patientInsurance = localStorage.getItem('patientInsurance') || '';
+      
+      console.log('Retrieved from localStorage:', {
+        providerType,
+        address,
+        careNeeds,
+        patientLanguage,
+        patientInsurance
+      });
+      
+      // Update search criteria summary
+      document.getElementById('summary-provider-type').textContent = getProviderTypeDisplay(providerType) || 'Any';
+      document.getElementById('summary-address').textContent = address || 'Not specified';
+      document.getElementById('summary-language').textContent = patientLanguage ? formatLanguage(patientLanguage) : 'Any';
+      document.getElementById('summary-insurance').textContent = patientInsurance ? formatInsurance(patientInsurance) : 'Any';
+      document.getElementById('summary-care-needs').textContent = 
+        careNeeds.length ? careNeeds.map(c => formatCharacteristicDisplay(c)).join(', ') : 'None selected';
+      
+      try {
+        // Load provider data from CSV
+        const providers = await loadProvidersFromCSV();
+        console.log('Loaded providers:', providers);
+        
+        // Filter providers based on criteria
+        const matchingProviders = filterProviders(
+          providers, 
+          providerType, 
+          careNeeds, 
+          patientLanguage, 
+          patientInsurance, 
+          address
+        );
+        console.log('Matching providers:', matchingProviders);
+        
+        // Remove skeleton loaders
+        const providersContainer = document.getElementById('providers-container');
+        providersContainer.innerHTML = '';
+        
+        // Update results count
+        document.getElementById('results-count').textContent = matchingProviders.length;
+        
+        // Display providers or no results message
+        const noResultsMessage = document.getElementById('no-results');
+        
+        if (matchingProviders.length > 0) {
+          // Show matching providers
+          matchingProviders.forEach(provider => {
+            providersContainer.appendChild(createProviderCard(provider));
+          });
+          providersContainer.classList.remove('hidden');
+          noResultsMessage.classList.add('hidden');
+        } else {
+          // Show no results message
+          providersContainer.classList.add('hidden');
+          noResultsMessage.classList.remove('hidden');
+        }
+      } catch (error) {
+        console.error('Error loading or processing provider data:', error);
+        // Show error message
+        document.getElementById('providers-container').innerHTML = `
+          <div class="col-span-full bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+            <p><strong>Error:</strong> Could not load provider data. Please try again later.</p>
+          </div>
+        `;
+      }
+    }
+    
+    // Function to create provider cards
+    function createProviderCard(provider) {
+      const card = document.createElement('div');
+      card.className = 'provider-card bg-white rounded-lg shadow-lg overflow-hidden';
+      
+      // Format provider type for display
+      const providerTypeDisplay = getProviderTypeDisplay(provider.type);
+      
+      // Get languages supported
+      const languages = provider.languages ? 
+        provider.languages.split(';').map(lang => formatLanguage(lang)).join(', ') : 
+        'Not specified';
+      
+      // Get insurance accepted
+      const insurance = provider.insurance ?
+        provider.insurance.split(';').map(ins => formatInsurance(ins)).join(', ') :
+        'Not specified';
+      
+      // Get care needs provided
+      const careNeeds = provider.care_needs ?
+        provider.care_needs.split(';').map(need => formatCharacteristicDisplay(need)).join(', ') :
+        'Not specified';
+      
+      // Get additional support
+      const additionalSupport = provider.additional_support && provider.additional_support.length > 0 ?
+        provider.additional_support.split(';').map(support => formatCharacteristicDisplay(support)).join(', ') :
+        'None';
+      
+      // Create contact buttons based on available information
+      const contactButtons = [];
+      if (provider.phone) {
+        contactButtons.push(`
+          <a href="tel:${provider.phone}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+            Call
+          </a>
+        `);
+      }
+      if (provider.website) {
+        contactButtons.push(`
+          <a href="${provider.website}" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            Email
+          </a>
+        `);
+      }
+      
+      card.innerHTML = `
+        <div class="p-6">
+          <h2 class="text-xl font-bold text-gray-800 mb-2">${provider.name}</h2>
+          <div class="text-gray-600 mb-2">${providerTypeDisplay}</div>
+          <div class="text-gray-600 mb-4">${provider.address || 'Address not available'}</div>
+          
+          <div class="border-t border-gray-200 pt-4 mb-4">
+            <p class="text-sm text-gray-500 mb-1">Languages: <span class="text-gray-700">${languages}</span></p>
+            <p class="text-sm text-gray-500 mb-1">Insurance: <span class="text-gray-700">${insurance}</span></p>
+            <p class="text-sm text-gray-500 mb-1">Services: <span class="text-gray-700">${careNeeds}</span></p>
+            <p class="text-sm text-gray-500 mb-1">Special Accommodations: <span class="text-gray-700">${additionalSupport}</span></p>
+          </div>
+          
+          <div class="flex justify-between items-center">
+            <span class="text-blue-600">${provider.distance}</span>
+            <div class="flex gap-2">
+              ${contactButtons.join('')}
+            </div>
+          </div>
+        </div>
+      `;
+      
+      return card;
+    }
+    
+    // Initialize the page when DOM is ready
+    document.addEventListener('DOMContentLoaded', populatePage);
+  </script>
+</body>
+</html>
