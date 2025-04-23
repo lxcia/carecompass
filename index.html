@@ -3,90 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Referral Tool</title>
+  <title>Dental Referral Tool</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 30px;
-    }
     .checkbox-columns {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       margin-top: 20px;
     }
     .column {
       flex: 1;
+      min-width: 250px;
       padding: 10px;
     }
     .column h3 {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      color: #1e40af;
+      font-weight: 600;
     }
     .form-section {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .checkbox-label input {
+      margin-right: 10px;
+    }
+    body {
+      background-image: url('carecompass.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+    }
+    .content-wrapper {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 0.5rem;
     }
   </style>
 </head>
-<body>
+<body class="font-sans">
 
-  <h1>Referral Tool for Mobile Dental Providers</h1>
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-6xl font-bold text-gray-800 mb-6 text-center">care🦷compass</h1>
+    
+    <div class="content-wrapper shadow-md rounded-lg p-6 mb-8">
+      <!-- Provider Type Dropdown -->
+      <div class="form-section">
+        <label for="provider-type" class="block text-lg font-medium text-gray-700 mb-2">Select provider type:</label>
+        <select id="provider-type" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+          <option value="">-- Select Provider Type --</option>
+          <option value="mobile_dentist">Mobile Dentist</option>
+          <option value="dental_hygienist">Public Health Dental Hygienist</option>
+          <option value="health_center">Community Health Center</option>
+          <option value="dental_school">Dental School</option>
+        </select>
+      </div>
 
-  <!-- Provider Type Dropdown -->
-  <div class="form-section">
-    <label for="provider-type">Select provider type:</label>
-    <select id="provider-type">
-      <option value="">-- Select --</option>
-      <option value="mobile_dentist">Mobile Dentist</option>
-      <option value="dental_hygienist">Public Health Dental Hygienist</option>
-      <option value="health_center">Community Health Center</option>
-      <option value="dental_school">Dental School</option>
-    </select>
+      <!-- Patient Characteristics Selection -->
+      <div class="form-section">
+        <h2 class="text-lg font-medium text-gray-700 mb-4">Filter for type of patient:</h2>
+        <div class="checkbox-columns">
+          <div class="column">
+            <h3>Patient Care Needs</h3>
+            <label class="checkbox-label"><input type="checkbox" value="prophylaxis" /> Prophylaxis</label>
+            <label class="checkbox-label"><input type="checkbox" value="fluoride" /> Fluoride Treatment</label>
+            <label class="checkbox-label"><input type="checkbox" value="cancer_screening" /> Oral Cancer Screening</label>
+            <label class="checkbox-label"><input type="checkbox" value="fillings" /> Fillings</label>
+            <label class="checkbox-label"><input type="checkbox" value="extractions" /> Extractions</label>
+            <label class="checkbox-label"><input type="checkbox" value="endodontic" /> Endodontic Treatment</label>
+            <label class="checkbox-label"><input type="checkbox" value="periodontal" /> Periodontal Treatments</label>
+          </div>
+          
+          <div class="column">
+            <h3>Patient Language</h3>
+            <select id="patient-language" class="w-full p-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500 mb-4">
+              <option value="">-- Select Language --</option>
+              <option value="english">English</option>
+              <option value="spanish">Spanish</option>
+              <option value="arabic">Arabic</option>
+              <option value="chinese">Chinese</option>
+              <option value="french">French</option>
+              <option value="haitian">Haitian Creole</option>
+              <option value="hindi">Hindi</option>
+              <option value="italian">Italian</option>
+              <option value="korean">Korean</option>
+              <option value="portuguese">Portuguese</option>
+              <option value="russian">Russian</option>
+              <option value="vietnamese">Vietnamese</option>
+            </select>
+            
+            <h3>Patient Insurance</h3>
+            <select id="patient-insurance" class="w-full p-2 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500">
+              <option value="">-- Select Insurance --</option>
+              <option value="masshealth">MassHealth</option>
+              <option value="private">Private Pay</option>
+              <option value="bcbs">Blue Cross Blue Shield</option>
+              <option value="medicare">Medicare</option>
+              <option value="delta">Delta Dental</option>
+              <option value="aetna">Aetna</option>
+              <option value="cigna">Cigna</option>
+              <option value="uninsured">Uninsured/Self-Pay</option>
+            </select>
+          </div>
+          
+          <div class="column">
+            <h3>Additional Patient Information</h3>
+            <label class="checkbox-label"><input type="checkbox" value="nursing_home" /> Nursing home</label>
+            <label class="checkbox-label"><input type="checkbox" value="homebound" /> Homebound</label>
+            <label class="checkbox-label"><input type="checkbox" value="disabled" /> Intellectually/developmentally disabled</label>
+            <label class="checkbox-label"><input type="checkbox" value="dementia" /> Dementia/Alzheimer's</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Patient Address -->
+      <div class="form-section">
+        <label for="address" class="block text-lg font-medium text-gray-700 mb-2">Enter patient address:</label>
+        <input type="text" id="address" placeholder="123 Main St, Boston, MA" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+
+      <!-- Submit Button -->
+      <button onclick="handleSubmit()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition">
+        Find Matching Providers
+      </button>
+    </div>
   </div>
 
-  <!-- Patient Characteristics Checkboxes -->
-  <div class="checkbox-columns">
-    <div class="column">
-      <h3>Column 1</h3>
-      <label><input type="checkbox" value="char1" /> Characteristic 1</label><br>
-      <label><input type="checkbox" value="char2" /> Characteristic 2</label>
-    </div>
-    <div class="column">
-      <h3>Column 2</h3>
-      <label><input type="checkbox" value="char3" /> Characteristic 3</label><br>
-      <label><input type="checkbox" value="char4" /> Characteristic 4</label>
-    </div>
-    <div class="column">
-      <h3>Column 3</h3>
-      <label><input type="checkbox" value="char5" /> Characteristic 5</label><br>
-      <label><input type="checkbox" value="char6" /> Characteristic 6</label>
-    </div>
-    <div class="column">
-      <h3>Column 4</h3>
-      <label><input type="checkbox" value="char7" /> Characteristic 7</label><br>
-      <label><input type="checkbox" value="char8" /> Characteristic 8</label>
-    </div>
+  <div class="text-center text-xs text-gray-500 mt-8 mb-4">
+    This is a demo tool. We welcome your feedback! Please contact us at <a href="mailto:lucia_morris@g.harvard.edu" class="text-blue-600 hover:text-blue-800">lucia_morris@g.harvard.edu</a>.
   </div>
-
-  <!-- Patient Address -->
-  <div class="form-section">
-    <label for="address">Enter patient address:</label><br>
-    <input type="text" id="address" placeholder="123 Main St, Boston, MA" size="50" />
-  </div>
-
-  <!-- Submit Button -->
-  <button onclick="handleSubmit()">Submit</button>
 
   <script>
     function handleSubmit() {
       const providerType = document.getElementById("provider-type").value;
       const address = document.getElementById("address").value;
+      const patientLanguage = document.getElementById("patient-language").value;
+      const patientInsurance = document.getElementById("patient-insurance").value;
 
-      // Gather all checked characteristics
-      const checked = Array.from(document.querySelectorAll("input[type=checkbox]:checked"))
+      // Gather all checked patient care needs and additional info
+      const careNeeds = Array.from(document.querySelectorAll("input[type=checkbox]:checked"))
                            .map(cb => cb.value);
 
       // Save inputs to localStorage to use on the next page
       localStorage.setItem("providerType", providerType);
-      localStorage.setItem("characteristics", JSON.stringify(checked));
+      localStorage.setItem("careNeeds", JSON.stringify(careNeeds));
+      localStorage.setItem("patientLanguage", patientLanguage);
+      localStorage.setItem("patientInsurance", patientInsurance);
       localStorage.setItem("address", address);
 
       // Redirect to map page
