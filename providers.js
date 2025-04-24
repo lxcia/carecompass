@@ -79,7 +79,7 @@ const providersData = [
     "website": "https://www.bphc.org/dental/moreau",
     "care_needs": "prophylaxis;fluoride;cancer_screening",
     "languages": "english;french;haitian",
-    "insurance": "masshealth;uninsured",
+    "insurance": "masshealth",
     "additional_support": "disabled;homebound",
     "rating": "4.4",
     "image": "https://via.placeholder.com/500x300?text=Lucie+Moreau"
@@ -121,7 +121,7 @@ const providersData = [
     "website": "https://www.roslindaledentalcare.com/oliveira",
     "care_needs": "prophylaxis;fluoride",
     "languages": "english;haitian;spanish",
-    "insurance": "masshealth;medicare;uninsured",
+    "insurance": "masshealth;medicare",
     "additional_support": "homebound;disabled",
     "rating": "4.6",
     "image": "https://via.placeholder.com/500x300?text=Isabella+Santos"
@@ -135,7 +135,7 @@ const providersData = [
     "website": "https://www.cambridgepublichealth.org/petrov",
     "care_needs": "prophylaxis;fluoride;cancer_screening",
     "languages": "english;russian",
-    "insurance": "masshealth;uninsured;bcbs",
+    "insurance": "masshealth;bcbs",
     "additional_support": "disabled;homebound",
     "rating": "4.6",
     "image": "https://via.placeholder.com/500x300?text=Natasha+Petrov"
@@ -191,7 +191,7 @@ const providersData = [
     "website": "https://www.dorchestercommunityhealth.org/alzahrani",
     "care_needs": "prophylaxis;fluoride",
     "languages": "english;arabic",
-    "insurance": "masshealth;uninsured;medicare",
+    "insurance": "masshealth;medicare",
     "additional_support": "nursing_home;disabled",
     "rating": "4.6",
     "image": "https://via.placeholder.com/500x300?text=Fatima+Al-Zahrani"
@@ -205,7 +205,7 @@ const providersData = [
     "website": "https://www.brightonhealth.org/vasquez",
     "care_needs": "prophylaxis;fluoride;cancer_screening",
     "languages": "english;spanish",
-    "insurance": "masshealth;bcbs;aetna;uninsured",
+    "insurance": "masshealth;bcbs;aetna",
     "additional_support": "disabled;homebound",
     "rating": "4.7",
     "image": "https://via.placeholder.com/500x300?text=Elena+Vasquez"
@@ -247,7 +247,7 @@ const providersData = [
     "website": "https://www.jamaicaplainhealth.org/santos",
     "care_needs": "prophylaxis;fluoride;cancer_screening",
     "languages": "english;portuguese;spanish",
-    "insurance": "masshealth;medicare;uninsured",
+    "insurance": "masshealth;medicare",
     "additional_support": "homebound;disabled",
     "rating": "4.6",
     "image": "https://via.placeholder.com/500x300?text=Isabella+Santos"
@@ -303,7 +303,7 @@ const providersData = [
     "website": "https://www.uphamscornerhealth.org/singh",
     "care_needs": "prophylaxis;fluoride",
     "languages": "english;hindi",
-    "insurance": "masshealth;bcbs;aetna;uninsured",
+    "insurance": "masshealth;bcbs;aetna",
     "additional_support": "disabled;homebound",
     "rating": "4.4",
     "image": "https://via.placeholder.com/500x300?text=Jasmine+Singh"
@@ -317,7 +317,7 @@ const providersData = [
     "website": "https://www.mattapanhealthcenter.org/mensah",
     "care_needs": "prophylaxis;fluoride;cancer_screening",
     "languages": "english",
-    "insurance": "masshealth;medicare;uninsured",
+    "insurance": "masshealth;medicare",
     "additional_support": "disabled",
     "rating": "4.5",
     "image": "https://via.placeholder.com/500x300?text=Kwame+Mensah"
@@ -345,7 +345,7 @@ const providersData = [
     "website": "https://www.missionhillhealth.org/hernandez",
     "care_needs": "prophylaxis;fluoride;cancer_screening",
     "languages": "english;spanish",
-    "insurance": "masshealth;medicare;bcbs;uninsured",
+    "insurance": "masshealth;medicare;bcbs",
     "additional_support": "disabled;homebound",
     "rating": "4.6",
     "image": "https://via.placeholder.com/500x300?text=Sofia+Hernandez"
@@ -457,7 +457,7 @@ function formatCharacteristicDisplay(charValue) {
     'fillings': 'Fillings',
     'extractions': 'Extractions',
     'endodontic': 'Endodontic Treatment',
-    'periodontal': 'Periodontal Treatments',
+    'periodontal': 'Periodontal Treatment',
     
     // Additional Patient Information
     'nursing_home': 'Nursing Home',
@@ -487,7 +487,6 @@ function formatCharacteristicDisplay(charValue) {
     'delta': 'Delta Dental',
     'aetna': 'Aetna',
     'cigna': 'Cigna',
-    'uninsured': 'Uninsured/Self-Pay'
   };
   
   return charDisplayMap[charValue] || charValue;
