@@ -40,7 +40,7 @@
           <p id="summary-provider-type" class="text-gray-800">-</p>
         </div>
         <div>
-          <p class="text-gray-600 font-medium">Patient Address:</p>
+          <p class="text-gray-600 font-medium">Patient Zip Code:</p>
           <p id="summary-address" class="text-gray-800">-</p>
         </div>
         <div>
@@ -122,14 +122,14 @@
     async function populatePage() {
       // Get saved data from localStorage
       const providerType = localStorage.getItem('providerType') || '';
-      const address = localStorage.getItem('address') || '';
+      const zipcode = localStorage.getItem('zipcode') || '';
       const careNeeds = JSON.parse(localStorage.getItem('careNeeds') || '[]');
       const patientLanguage = localStorage.getItem('patientLanguage') || '';
       const patientInsurance = localStorage.getItem('patientInsurance') || '';
       
       console.log('Retrieved from localStorage:', {
         providerType,
-        address,
+        zipcode,
         careNeeds,
         patientLanguage,
         patientInsurance
@@ -137,7 +137,7 @@
       
       // Update search criteria summary
       document.getElementById('summary-provider-type').textContent = getProviderTypeDisplay(providerType) || 'Any';
-      document.getElementById('summary-address').textContent = address || 'Not specified';
+      document.getElementById('summary-address').textContent = zipcode || 'Not specified';
       document.getElementById('summary-language').textContent = patientLanguage ? formatLanguage(patientLanguage) : 'Any';
       document.getElementById('summary-insurance').textContent = patientInsurance ? formatInsurance(patientInsurance) : 'Any';
       document.getElementById('summary-care-needs').textContent = 
@@ -155,7 +155,7 @@
           careNeeds, 
           patientLanguage, 
           patientInsurance, 
-          address
+          zipcode
         );
         console.log('Matching providers:', matchingProviders);
         
@@ -244,20 +244,21 @@
       }
       
       card.innerHTML = `
-        <div class="p-6">
-          <h2 class="text-xl font-bold text-gray-800 mb-2">${provider.name}</h2>
-          <div class="text-gray-600 mb-2">${providerTypeDisplay}</div>
-          <div class="text-gray-600 mb-4">${provider.address || 'Address not available'}</div>
-          
-          <div class="border-t border-gray-200 pt-4 mb-4">
-            <p class="text-sm text-gray-500 mb-1">Languages: <span class="text-gray-700">${languages}</span></p>
-            <p class="text-sm text-gray-500 mb-1">Insurance: <span class="text-gray-700">${insurance}</span></p>
-            <p class="text-sm text-gray-500 mb-1">Services: <span class="text-gray-700">${careNeeds}</span></p>
-            <p class="text-sm text-gray-500 mb-1">Special Accommodations: <span class="text-gray-700">${additionalSupport}</span></p>
+        <div class="p-6 flex flex-col h-full">
+          <div class="flex-grow">
+            <h2 class="text-xl font-bold text-gray-800 mb-2">${provider.name}</h2>
+            <div class="text-gray-600 mb-2">${providerTypeDisplay}</div>
+            <div class="text-gray-600 mb-4">${provider.address || 'Address not available'}</div>
+            
+            <div class="border-t border-gray-200 pt-4 mb-4">
+              <p class="text-sm text-gray-500 mb-1">Languages: <span class="text-gray-700">${languages}</span></p>
+              <p class="text-sm text-gray-500 mb-1">Insurance: <span class="text-gray-700">${insurance}</span></p>
+              <p class="text-sm text-gray-500 mb-1">Services: <span class="text-gray-700">${careNeeds}</span></p>
+              <p class="text-sm text-gray-500 mb-1">Special Accommodations: <span class="text-gray-700">${additionalSupport}</span></p>
+            </div>
           </div>
           
-          <div class="flex justify-between items-center">
-            <span class="text-blue-600">${provider.distance}</span>
+          <div class="flex justify-end items-center mt-4">
             <div class="flex gap-2">
               ${contactButtons.join('')}
             </div>

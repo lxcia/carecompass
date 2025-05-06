@@ -12,7 +12,8 @@ const providersData = [
     "insurance": "masshealth;medicare;bcbs;delta",
     "additional_support": "nursing_home;homebound",
     "rating": "4.8",
-    "image": "https://via.placeholder.com/500x300?text=Maria+Rodriguez"
+    "image": "https://via.placeholder.com/500x300?text=Maria+Rodriguez",
+    "zip_codes": "02121;02122;02124;02125;02126;02127;02128;02129;02131;02132"
   },
   {
     "id": "2",
@@ -26,7 +27,8 @@ const providersData = [
     "insurance": "masshealth;bcbs;aetna;cigna",
     "additional_support": "homebound;disabled",
     "rating": "4.6",
-    "image": "https://via.placeholder.com/500x300?text=Sophia+Chen"
+    "image": "https://via.placeholder.com/500x300?text=Sophia+Chen",
+    "zip_codes": "02108;02109;02110;02111;02113;02114;02115;02116"
   },
   {
     "id": "3",
@@ -36,11 +38,12 @@ const providersData = [
     "phone": "(617) 555-9012",
     "website": "https://www.williamsmobiledental.com",
     "care_needs": "prophylaxis;fluoride;fillings;extractions;periodontal",
-    "languages": "english,spanish",
+    "languages": "english;spanish",
     "insurance": "masshealth;medicare;bcbs;delta;cigna",
     "additional_support": "nursing_home;dementia",
     "rating": "4.9",
-    "image": "https://via.placeholder.com/500x300?text=James+Williams"
+    "image": "https://via.placeholder.com/500x300?text=James+Williams",
+    "zip_codes": "02108;02109;02110;02111;02113;02114;02115;02116;02117;02118;02119;02120"
   },
   {
     "id": "4",
@@ -54,7 +57,8 @@ const providersData = [
     "insurance": "masshealth;bcbs;cigna",
     "additional_support": "disabled",
     "rating": "4.7",
-    "image": "https://via.placeholder.com/500x300?text=Yoon-Ji+Park"
+    "image": "https://via.placeholder.com/500x300?text=Yoon-Ji+Park",
+    "zip_codes": "02138;02139;02140;02141;02142"
   },
   {
     "id": "5",
@@ -68,7 +72,8 @@ const providersData = [
     "insurance": "medicare;bcbs;aetna;delta",
     "additional_support": "nursing_home;homebound;dementia",
     "rating": "4.5",
-    "image": "https://via.placeholder.com/500x300?text=Roberto+Bianchi"
+    "image": "https://via.placeholder.com/500x300?text=Roberto+Bianchi",
+    "zip_codes": "02108;02109;02110;02111;02113;02114;02115;02116;02117;02118"
   },
   {
     "id": "6",
@@ -82,7 +87,8 @@ const providersData = [
     "insurance": "masshealth",
     "additional_support": "disabled;homebound",
     "rating": "4.4",
-    "image": "https://via.placeholder.com/500x300?text=Lucie+Moreau"
+    "image": "https://via.placeholder.com/500x300?text=Lucie+Moreau",
+    "zip_codes": "02118;02119;02120;02121;02122;02124;02125;02126;02127;02128;02129;02130;02131;02132"
   },
   {
     "id": "7",
@@ -96,7 +102,8 @@ const providersData = [
     "insurance": "masshealth;medicare;bcbs",
     "additional_support": "disabled",
     "rating": "4.8",
-    "image": "https://via.placeholder.com/500x300?text=Miguel+Sanchez"
+    "image": "https://via.placeholder.com/500x300?text=Miguel+Sanchez",
+    "zip_codes": "02128;02129;02130;02131;02132;02134;02135;02136"
   },
   {
     "id": "8",
@@ -110,7 +117,8 @@ const providersData = [
     "insurance": "private;delta;aetna;cigna;bcbs",
     "additional_support": "nursing_home;disabled",
     "rating": "4.9",
-    "image": "https://via.placeholder.com/500x300?text=Sarah+Johnson"
+    "image": "https://via.placeholder.com/500x300?text=Sarah+Johnson",
+    "zip_codes": "02115;02116;02117;02118;02119;02120;02121;02122;02445;02446;02447"
   },
   {
     "id": "9",
@@ -124,7 +132,8 @@ const providersData = [
     "insurance": "masshealth;medicare",
     "additional_support": "homebound;disabled",
     "rating": "4.6",
-    "image": "https://via.placeholder.com/500x300?text=Isabella+Santos"
+    "image": "https://via.placeholder.com/500x300?text=Isabella+Santos",
+    "zip_codes": "02130;02131;02132;02134;02135;02136"
   },
   {
     "id": "10",
@@ -138,7 +147,8 @@ const providersData = [
     "insurance": "masshealth;bcbs",
     "additional_support": "disabled;homebound",
     "rating": "4.6",
-    "image": "https://via.placeholder.com/500x300?text=Natasha+Petrov"
+    "image": "https://via.placeholder.com/500x300?text=Natasha+Petrov",
+    "zip_codes": "02138;02139;02140;02141;02142;02143;02144;02145"
   },
   {
     "id": "11",
@@ -152,7 +162,8 @@ const providersData = [
     "insurance": "masshealth;bcbs;aetna",
     "additional_support": "disabled",
     "rating": "4.5",
-    "image": "https://via.placeholder.com/500x300?text=Amara+Okafor"
+    "image": "https://via.placeholder.com/500x300?text=Amara+Okafor",
+    "zip_codes": "02115;02116;02117;02118;02119;02120;02121;02122;02215"
   },
   {
     "id": "12",
@@ -166,7 +177,8 @@ const providersData = [
     "insurance": "masshealth;medicare;bcbs;aetna",
     "additional_support": "nursing_home;homebound;dementia",
     "rating": "4.7",
-    "image": "https://via.placeholder.com/500x300?text=David+Kim"
+    "image": "https://via.placeholder.com/500x300?text=David+Kim",
+    "zip_codes": "02115;02116;02117;02118;02119;02120;02121;02122;02458;02459;02460;02461;02462"
   },
   {
     "id": "13",
@@ -180,7 +192,8 @@ const providersData = [
     "insurance": "masshealth;medicare;bcbs",
     "additional_support": "disabled;homebound",
     "rating": "4.4",
-    "image": "https://via.placeholder.com/500x300?text=Anh+Nguyen"
+    "image": "https://via.placeholder.com/500x300?text=Anh+Nguyen",
+    "zip_codes": "02127;02128;02129;02130;02131;02132;02134;02135;02136"
   },
   {
     "id": "14",
@@ -194,7 +207,8 @@ const providersData = [
     "insurance": "masshealth;medicare",
     "additional_support": "nursing_home;disabled",
     "rating": "4.6",
-    "image": "https://via.placeholder.com/500x300?text=Fatima+Al-Zahrani"
+    "image": "https://via.placeholder.com/500x300?text=Fatima+Al-Zahrani",
+    "zip_codes": "02121;02122;02124;02125;02126;02127;02128;02129;02131;02132"
   },
   {
     "id": "15",
@@ -208,7 +222,8 @@ const providersData = [
     "insurance": "masshealth;bcbs;aetna",
     "additional_support": "disabled;homebound",
     "rating": "4.7",
-    "image": "https://via.placeholder.com/500x300?text=Elena+Vasquez"
+    "image": "https://via.placeholder.com/500x300?text=Elena+Vasquez",
+    "zip_codes": "02134;02135;02136;02138;02139;02140;02141;02142"
   },
   {
     "id": "16",
@@ -218,11 +233,12 @@ const providersData = [
     "phone": "(617) 555-1357",
     "website": "https://www.tanakadentalcare.com",
     "care_needs": "prophylaxis;fluoride;fillings;extractions;endodontic;periodontal;cancer_screening",
-    "languages": "english;japanese",
+    "languages": "english",
     "insurance": "bcbs;delta;aetna;cigna;private",
     "additional_support": "nursing_home;dementia",
     "rating": "4.8",
-    "image": "https://via.placeholder.com/500x300?text=Hiro+Tanaka"
+    "image": "https://via.placeholder.com/500x300?text=Hiro+Tanaka",
+    "zip_codes": "02115;02116;02117;02118;02119;02120;02121;02122;02458;02459;02460;02461;02462"
   },
   {
     "id": "17",
@@ -236,7 +252,8 @@ const providersData = [
     "insurance": "masshealth;bcbs;medicare",
     "additional_support": "disabled",
     "rating": "4.5",
-    "image": "https://via.placeholder.com/500x300?text=Rachel+Goldstein"
+    "image": "https://via.placeholder.com/500x300?text=Rachel+Goldstein",
+    "zip_codes": "02118;02119;02120;02121;02122;02124;02125;02126;02127;02128;02129;02130;02131;02132"
   },
   {
     "id": "18",
@@ -250,7 +267,8 @@ const providersData = [
     "insurance": "masshealth;medicare",
     "additional_support": "homebound;disabled",
     "rating": "4.6",
-    "image": "https://via.placeholder.com/500x300?text=Isabella+Santos"
+    "image": "https://via.placeholder.com/500x300?text=Isabella+Santos",
+    "zip_codes": "02130;02131;02132;02134;02135;02136"
   },
   {
     "id": "19",
@@ -264,7 +282,8 @@ const providersData = [
     "insurance": "masshealth;medicare;bcbs;delta",
     "additional_support": "nursing_home;homebound;disabled",
     "rating": "4.9",
-    "image": "https://via.placeholder.com/500x300?text=Antoine+Dubois"
+    "image": "https://via.placeholder.com/500x300?text=Antoine+Dubois",
+    "zip_codes": "02108;02109;02110;02111;02113;02114;02115;02116"
   },
   {
     "id": "20",
@@ -278,7 +297,8 @@ const providersData = [
     "insurance": "masshealth;bcbs;cigna",
     "additional_support": "homebound",
     "rating": "4.7",
-    "image": "https://via.placeholder.com/500x300?text=Li+Wei"
+    "image": "https://via.placeholder.com/500x300?text=Li+Wei",
+    "zip_codes": "02128;02129;02130;02131;02132;02134;02135;02136"
   },
   {
     "id": "21",
@@ -292,7 +312,8 @@ const providersData = [
     "insurance": "medicare;bcbs;delta;aetna;cigna",
     "additional_support": "nursing_home;homebound;dementia",
     "rating": "4.6",
-    "image": "https://via.placeholder.com/500x300?text=Michael+OConnor"
+    "image": "https://via.placeholder.com/500x300?text=Michael+OConnor",
+    "zip_codes": "02128;02129;02130;02131;02132;02134;02135;02136"
   },
   {
     "id": "22",
@@ -306,7 +327,8 @@ const providersData = [
     "insurance": "masshealth;bcbs;aetna",
     "additional_support": "disabled;homebound",
     "rating": "4.4",
-    "image": "https://via.placeholder.com/500x300?text=Jasmine+Singh"
+    "image": "https://via.placeholder.com/500x300?text=Jasmine+Singh",
+    "zip_codes": "02143;02144;02145;02148;02149;02150;02151;02152;02153"
   },
   {
     "id": "23",
@@ -320,7 +342,8 @@ const providersData = [
     "insurance": "masshealth;medicare",
     "additional_support": "disabled",
     "rating": "4.5",
-    "image": "https://via.placeholder.com/500x300?text=Kwame+Mensah"
+    "image": "https://via.placeholder.com/500x300?text=Kwame+Mensah",
+    "zip_codes": "02121;02122;02124;02125;02126;02127;02128;02129;02131;02132"
   },
   {
     "id": "24",
@@ -334,7 +357,8 @@ const providersData = [
     "insurance": "masshealth;bcbs;cigna;delta",
     "additional_support": "homebound",
     "rating": "4.7",
-    "image": "https://via.placeholder.com/500x300?text=Eun-Ji+Lee"
+    "image": "https://via.placeholder.com/500x300?text=Eun-Ji+Lee",
+    "zip_codes": "02138;02139;02140;02141;02142"
   },
   {
     "id": "25",
@@ -348,7 +372,8 @@ const providersData = [
     "insurance": "masshealth;medicare;bcbs",
     "additional_support": "disabled;homebound",
     "rating": "4.6",
-    "image": "https://via.placeholder.com/500x300?text=Sofia+Hernandez"
+    "image": "https://via.placeholder.com/500x300?text=Sofia+Hernandez",
+    "zip_codes": "02115;02116;02117;02118;02119;02120;02121;02122"
   }
 ];
 
@@ -356,34 +381,23 @@ const providersData = [
 async function loadProvidersFromCSV() {
   try {
     console.log('Loading providers from static data...');
-    // Add random distance to each provider
-    const providers = providersData.map(provider => ({
-      ...provider,
-      distance: (Math.random() * 5).toFixed(1) + ' miles'
-    }));
-    console.log(`Successfully loaded ${providers.length} providers`);
-    return providers;
+    // Return providers without adding distance
+    console.log(`Successfully loaded ${providersData.length} providers`);
+    return providersData;
   } catch (error) {
     console.error('Error loading provider data:', error);
     return [];
   }
 }
 
-// Function to calculate distance between two points (to be used in a real implementation)
-function calculateDistance(address1, address2) {
-  // In a real implementation, this would use a geocoding service
-  // For now, we'll just return a random distance
-  return (Math.random() * 10).toFixed(1) + ' miles';
-}
-
 // Function to filter providers based on criteria
-function filterProviders(providers, providerType, careNeeds, patientLanguage, patientInsurance, address) {
+function filterProviders(providers, providerType, careNeeds, patientLanguage, patientInsurance, zipcode) {
   console.log('Filtering providers with criteria:', {
     providerType,
     careNeeds,
     patientLanguage,
     patientInsurance,
-    address
+    zipcode
   });
   
   return providers.filter(provider => {
@@ -405,6 +419,7 @@ function filterProviders(providers, providerType, careNeeds, patientLanguage, pa
     const providerLanguages = provider.languages ? provider.languages.split(';') : [];
     const providerInsurance = provider.insurance ? provider.insurance.split(';') : [];
     const providerAdditionalSupport = provider.additional_support ? provider.additional_support.split(';') : [];
+    const providerZipCodes = provider.zip_codes ? provider.zip_codes.split(';') : [];
     
     // Check if provider supports the selected dental care needs
     const hasMatchingCareNeeds = dentalCareNeeds.length === 0 || 
@@ -426,8 +441,13 @@ function filterProviders(providers, providerType, careNeeds, patientLanguage, pa
       providerInsurance.includes(patientInsurance);
     console.log(`Provider ${provider.name} accepts insurance: ${acceptsInsurance}`);
     
+    // Check if provider serves the patient's zip code
+    const servesZipCode = !zipcode || 
+      providerZipCodes.includes(zipcode);
+    console.log(`Provider ${provider.name} serves zip code: ${servesZipCode}`);
+    
     const matches = typeMatches && hasMatchingCareNeeds && supportsLanguage && 
-           acceptsInsurance && supportsAdditionalNeeds;
+           acceptsInsurance && supportsAdditionalNeeds && servesZipCode;
     console.log(`Provider ${provider.name} matches all criteria: ${matches}`);
     
     return matches;

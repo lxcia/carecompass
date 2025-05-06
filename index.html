@@ -122,8 +122,8 @@
 
       <!-- Patient Address -->
       <div class="form-section">
-        <label for="address" class="block text-lg font-medium text-gray-700 mb-2">Enter patient address:</label>
-        <input type="text" id="address" placeholder="123 Main St, Boston, MA" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" />
+        <label for="zipcode" class="block text-lg font-medium text-gray-700 mb-2">Enter patient zip code:</label>
+        <input type="text" id="zipcode" placeholder="02108" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" />
       </div>
 
       <!-- Submit Button -->
@@ -140,7 +140,7 @@
   <script>
     function handleSubmit() {
       const providerType = document.getElementById("provider-type").value;
-      const address = document.getElementById("address").value;
+      const zipcode = document.getElementById("zipcode").value;
       const patientLanguage = document.getElementById("patient-language").value;
       const patientInsurance = document.getElementById("patient-insurance").value;
 
@@ -153,7 +153,7 @@
       localStorage.setItem("careNeeds", JSON.stringify(careNeeds));
       localStorage.setItem("patientLanguage", patientLanguage);
       localStorage.setItem("patientInsurance", patientInsurance);
-      localStorage.setItem("address", address);
+      localStorage.setItem("zipcode", zipcode);
 
       // Redirect to map page
       window.location.href = "map.html";
