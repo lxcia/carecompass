@@ -71,8 +71,9 @@
           <div class="column">
             <h3>Patient Care Needs</h3>
             <label class="checkbox-label"><input type="checkbox" value="prophylaxis" /> Prophylaxis</label>
-            <label class="checkbox-label"><input type="checkbox" value="fluoride" /> Fluoride Treatment</label>
-            <label class="checkbox-label"><input type="checkbox" value="cancer_screening" /> Oral Cancer Screening</label>
+            <label class="checkbox-label"><input type="checkbox" value="xrays" /> X-rays</label>
+            <label class="checkbox-label"><input type="checkbox" value="exam" /> Exam</label>
+            <label class="checkbox-label"><input type="checkbox" value="cancer_screening" /> Dental/Oral Cancer Screening</label>
             <label class="checkbox-label"><input type="checkbox" value="fillings" /> Fillings</label>
             <label class="checkbox-label"><input type="checkbox" value="extractions" /> Extractions</label>
             <label class="checkbox-label"><input type="checkbox" value="endodontic" /> Endodontic Treatment</label>
@@ -107,6 +108,7 @@
               <option value="delta">Delta Dental</option>
               <option value="aetna">Aetna</option>
               <option value="cigna">Cigna</option>
+              <option value="cca">Commonwealth Cares Alliance</option>
             </select>
           </div>
           
@@ -116,6 +118,9 @@
             <label class="checkbox-label"><input type="checkbox" value="homebound" /> Homebound</label>
             <label class="checkbox-label"><input type="checkbox" value="disabled" /> Intellectually/developmentally disabled</label>
             <label class="checkbox-label"><input type="checkbox" value="dementia" /> Dementia/Alzheimer's</label>
+            <label class="checkbox-label"><input type="checkbox" value="school" /> School/Headstart/Daycare</label>
+            <label class="checkbox-label"><input type="checkbox" value="recovery" /> Recovery/Addiction Program</label>
+            <label class="checkbox-label"><input type="checkbox" value="shelter" /> Shelter</label>
           </div>
         </div>
       </div>
@@ -156,7 +161,7 @@
       localStorage.setItem("zipcode", zipcode);
 
       // Redirect to map page
-      window.location.href = "map.html";
+      window.location.href = "results.html";
     }
   </script>
 </body>
